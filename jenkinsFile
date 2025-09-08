@@ -1,0 +1,31 @@
+import hudson.model.*
+import jenkins.model.*
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Ingresando Datos Suma'
+            }
+        }
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'git@github.com:Yahir2005/Pipeline_Suma.git'
+            }
+        }
+         stage('Compile Java') {
+            steps {
+                script {
+                    bat "javac Operaciones.java" 
+                }
+                script {
+                    def suma1 = Integer.valueOf(5)
+                    def suma2 = Integer.valueOf(4)
+                    bat "java Operaciones" 
+                }
+            }
+        }
+    }
+}
