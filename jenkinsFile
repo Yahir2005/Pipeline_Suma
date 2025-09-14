@@ -21,10 +21,7 @@ pipeline {
                     bat "javac Operaciones.java" 
                 }
                 script {
-                    /*
-                    def suma1 = 4
-                    def suma2 = 6
-                    bat "java Operaciones ${suma1} ${suma2}" */
+
                     bat "java Operaciones 3 5"
                 }
             }
